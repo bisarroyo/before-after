@@ -1,1 +1,1 @@
-import * from './index'
+import './index'
