@@ -1,29 +1,82 @@
-const btaContainer = document.getElementById('btaContainer') as HTMLDivElement
-const beforeImage = document.getElementById(
-  'before-image'
-) as HTMLImageElement | null
-const afterImage = document.getElementById(
-  'after-image'
-) as HTMLImageElement | null
-
-if (btaContainer === undefined) {
-  console.warn('Missing container image element')
+interface ContainerElement extends HTMLElement {
+  clientWidth: number
 }
 
-if (beforeImage === undefined) {
-  console.warn('Missing before image element')
+interface CustomImageElement {
+  style: {
+    width: string
+  }
 }
 
-if (afterImage === undefined) {
-  console.warn('Missing after image element')
+class BeforeAfterEffect {
+  private container: ContainerElement | null = null
+  private beforeImage: CustomImageElement | null = null
+  private afterImage: CustomImageElement | null = null
+  private rangeInput: HTMLInputElement | null = null
+  private imagesContainer: HTMLDivElement | null = null
+
+  constructor(private containerId: string) {
+    this.init()
+  }
+
+  private init() {
+    this.container = document.getElementById(
+      this.containerId
+    ) as ContainerElement
+
+    if (!this.container) {
+      console.error(`No se encontró el contenedor con ID "${this.containerId}"`)
+      return
+    }
+    this.createImagesContainer()
+    this.createRangeInput()
+    this.beforeImage = this.container.querySelector(
+      '#before-image'
+    ) as CustomImageElement | null
+    this.afterImage = this.container.querySelector(
+      '#after-image'
+    ) as CustomImageElement | null
+
+    if (!this.beforeImage || !this.afterImage || !this.rangeInput) {
+      console.error(
+        `No se encontraron las imágenes o el input con los IDs necesarios dentro de "${this.containerId}"`
+      )
+      return
+    }
+
+    this.attachEvents()
+  }
+  private createImagesContainer() {
+    this.imagesContainer = document.createElement('div')
+    this.imagesContainer.className = 'images' // Aplica la clase 'images' al nuevo contenedor
+    this.container!.appendChild(this.imagesContainer)
+  }
+
+  private createRangeInput() {
+    this.rangeInput = document.createElement('input')
+    this.rangeInput.type = 'range'
+    this.rangeInput.min = '0'
+    this.rangeInput.max = '100'
+    this.rangeInput.value = '50'
+    this.container!.appendChild(this.rangeInput)
+  }
+
+  private attachEvents() {
+    if (
+      !this.container ||
+      !this.beforeImage ||
+      !this.afterImage ||
+      !this.rangeInput
+    )
+      return
+
+    this.rangeInput.addEventListener('input', () => {
+      const value = this.rangeInput!.value
+      this.beforeImage!.style.width = value + '%'
+      this.afterImage!.style.width = 100 - parseInt(value) + '%'
+    })
+  }
 }
 
-const slider = document.createElement('input')
-slider.id = 'slider'
-slider.type = 'range'
-
-btaContainer.appendChild(slider)
-
-function updateBeforeAfter(index) {
-  const value = slider[index].value
-}
+// Ejemplo de uso
+const instance = new BeforeAfterEffect('btaContainer')
