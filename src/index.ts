@@ -5,6 +5,7 @@ interface ContainerElement extends HTMLElement {
 interface CustomImageElement {
   style: {
     width: string
+    clipPath: string
   }
 }
 
@@ -57,7 +58,8 @@ class BeforeAfterEffect {
     this.rangeInput.type = 'range'
     this.rangeInput.min = '0'
     this.rangeInput.max = '100'
-    this.rangeInput.value = '50'
+    this.rangeInput.value = '100'
+    this.rangeInput.className = 'range-value'
     this.container!.appendChild(this.rangeInput)
   }
 
@@ -71,9 +73,8 @@ class BeforeAfterEffect {
       return
 
     this.rangeInput.addEventListener('input', () => {
-      const value = this.rangeInput!.value
-      this.beforeImage!.style.width = value + '%'
-      this.afterImage!.style.width = 100 - parseInt(value) + '%'
+      const value = parseInt(this.rangeInput!.value)
+      this.beforeImage!.style.clipPath = `inset(0 ${100 - value}% 0 0)`
     })
   }
 }
