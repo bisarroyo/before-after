@@ -9,6 +9,13 @@ interface CustomImageElement {
   }
 }
 
+interface BeforeAfterOptions {
+  width?: string
+  height?: string
+  rangeInitialColor?: string
+  rangeInitialValue?: string
+}
+
 class BeforeAfterEffect {
   private container: ContainerElement | null = null
   private beforeImage: CustomImageElement | null = null
@@ -16,7 +23,17 @@ class BeforeAfterEffect {
   private rangeInput: HTMLInputElement | null = null
   private imagesContainer: HTMLDivElement | null = null
 
-  constructor(private containerId: string) {
+  constructor(
+    private containerId: string,
+    private options?: BeforeAfterOptions
+  ) {
+    const defaultOptions: BeforeAfterOptions = {
+      width: '500px',
+      height: '500px',
+      rangeInitialValue: '50',
+      rangeInitialColor: '#000000'
+    }
+    this.options = { ...defaultOptions, ...options }
     this.init()
   }
 
@@ -29,8 +46,14 @@ class BeforeAfterEffect {
       console.error(`No se encontró el contenedor con ID "${this.containerId}"`)
       return
     }
-    this.createImagesContainer()
+    if (this.container && this.options && this.options.width) {
+      this.container.style.width = this.options?.width
+    }
+    if (this.container && this.options && this.options.height) {
+      this.container.style.height = this.options?.height
+    }
     this.createRangeInput()
+
     this.beforeImage = this.container.querySelector(
       '#before-image'
     ) as CustomImageElement | null
@@ -47,20 +70,18 @@ class BeforeAfterEffect {
 
     this.attachEvents()
   }
-  private createImagesContainer() {
-    this.imagesContainer = document.createElement('div')
-    this.imagesContainer.className = 'images' // Aplica la clase 'images' al nuevo contenedor
-    this.container!.appendChild(this.imagesContainer)
-  }
 
   private createRangeInput() {
     this.rangeInput = document.createElement('input')
     this.rangeInput.type = 'range'
     this.rangeInput.min = '0'
     this.rangeInput.max = '100'
-    this.rangeInput.value = '100'
+    this.rangeInput.value = `${this.options?.rangeInitialValue}`
     this.rangeInput.className = 'range-value'
     this.container!.appendChild(this.rangeInput)
+    if (this.container && this.options && this.options.rangeInitialColor) {
+      this.rangeInput.style.color = this.options?.rangeInitialColor
+    }
   }
 
   private attachEvents() {
@@ -80,4 +101,9 @@ class BeforeAfterEffect {
 }
 
 // Ejemplo de uso
-const instance = new BeforeAfterEffect('btaContainer')
+const instance = new BeforeAfterEffect('btaContainer', {
+  width: '500px',
+  height: '300px',
+  rangeInitialValue: '10',
+  rangeInitialColor: '#000000'
+})
