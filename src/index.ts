@@ -21,7 +21,6 @@ class BeforeAfterEffect {
   private beforeImage: CustomImageElement | null = null
   private afterImage: CustomImageElement | null = null
   private rangeInput: HTMLInputElement | null = null
-  private imagesContainer: HTMLDivElement | null = null
 
   constructor(
     private containerId: string,
