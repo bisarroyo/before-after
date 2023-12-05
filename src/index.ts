@@ -100,9 +100,9 @@ class BeforeAfterEffect {
 }
 
 // Ejemplo de uso
-const instance = new BeforeAfterEffect('btaContainer', {
-  width: '500px',
-  height: '300px',
-  rangeInitialValue: '10',
-  rangeInitialColor: '#000000'
-})
+// const instance = new BeforeAfterEffect('btaContainer', {
+//   width: '500px',
+//   height: '300px',
+//   rangeInitialValue: '10',
+//   rangeInitialColor: '#000000'
+// })
