@@ -13,10 +13,11 @@
         <img src="/image-2.jpeg" id="after-image" alt="" />
       </div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
-    <script>
+    <script type="module" src="./src/main.ts"></script>
+    <script type="module">
+      import beforeAfterEffect from './src/main.ts'
       // Ejemplo de uso
-      const instance = new BeforeAfterEffect('btaContainer', {
+      const instance = new beforeAfterEffect('btaContainer', {
         width: '500px',
         height: '300px',
         rangeInitialValue: '50',

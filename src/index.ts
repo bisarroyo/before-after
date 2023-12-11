@@ -4,7 +4,7 @@ import {
   BeforeAfterOptions
 } from './types'
 
-class BeforeAfterEffect {
+class beforeAfterEffect {
   private container: ContainerElement | null = null
   private beforeImage: CustomImageElement | null = null
   private afterImage: CustomImageElement | null = null
@@ -91,4 +91,4 @@ class BeforeAfterEffect {
   }
 }
 
-export default BeforeAfterEffect
+export default beforeAfterEffect

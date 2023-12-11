@@ -1,17 +1,28 @@
 {
   "name": "before-to-after",
-  "version": "0.1.0",
-  "type": "module",
+  "version": "0.1.4",
+  "description": "",
+  "author": "Bismark Arroyo <bis.arroyo@gmail.com>",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bisarroyo/before-to-after.git"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/before-to-after",
   "devDependencies": {
     "standard": "^17.1.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-tsconfig-paths": "^4.2.2"
   },
   "eslintConfig": {
     "extends": "standard"

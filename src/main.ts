@@ -1,3 +1,5 @@
-import BeforeAfterEffect from './index'
+import beforeAfterEffect from './index'
 
 import './style.css'
+
+export default beforeAfterEffect
