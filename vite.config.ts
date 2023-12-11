@@ -2,11 +2,15 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import css from 'rollup-plugin-css-only'
 
 export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true
+    }),
+    css({
+      output: 'css/bundle.css'
     })
   ],
   build: {

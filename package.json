@@ -37,6 +37,7 @@
     "extends": "standard"
   },
   "dependencies": {
+    "rollup-plugin-css-only": "^4.5.2",
     "vite-plugin-dts": "^3.6.4"
   }
 }
