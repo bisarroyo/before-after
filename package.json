@@ -31,8 +31,7 @@
   "devDependencies": {
     "standard": "^17.1.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vite-tsconfig-paths": "^4.2.2"
+    "vite": "^4.4.5"
   },
   "eslintConfig": {
     "extends": "standard"
