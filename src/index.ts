@@ -92,6 +92,10 @@ class BeforeAfterEffect {
     )
       return
 
+    this.beforeImage!.style.clipPath = `inset(0 ${
+      100 - parseInt(this.rangeInput!.value)
+    }% 0 0)`
+
     this.rangeInput.addEventListener('input', () => {
       const value = parseInt(this.rangeInput!.value)
       this.beforeImage!.style.clipPath = `inset(0 ${100 - value}% 0 0)`
@@ -100,9 +104,9 @@ class BeforeAfterEffect {
 }
 
 // Ejemplo de uso
-// const instance = new BeforeAfterEffect('btaContainer', {
-//   width: '500px',
-//   height: '300px',
-//   rangeInitialValue: '10',
-//   rangeInitialColor: '#000000'
-// })
+const instance = new BeforeAfterEffect('btaContainer', {
+  width: '500px',
+  height: '300px',
+  rangeInitialValue: '50',
+  rangeInitialColor: '#000000'
+})

@@ -10,7 +10,7 @@
   max-width: 100%;
   height: 100%;
 
-  z-index: 0;
+  z-index: 2;
   object-fit: cover;
 }
 
@@ -48,5 +48,5 @@
   /* background: url('/wp-content/themes/titan/images/arrows_slider.png') no-repeat;  */
   background-size: cover;
   transition: transform 0.3s;
-  cursor: pointer;
+  cursor: grab;
 }
