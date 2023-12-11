@@ -1,24 +1,22 @@
-// vite.config.ts
+// vite.config.js
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  plugins: [
+    dts({
+      insertTypesEntry: true
+    })
+  ],
   build: {
     lib: {
-      entry: 'src/main.ts',
-      name: 'before-to-after'
-    },
-    rollupOptions: {
-      output: {
-        // Mantén el formato ES para el módulo
-        format: 'es',
-        // Agrega la generación de un archivo CommonJS
-        exports: 'named',
-        dir: 'dist',
-        entryFileNames: 'index.js',
-        sourcemap: true
-      }
+      // Could also be a dictionary or array of multiple entry points
+      entry: resolve(__dirname, 'src/main.ts'),
+      name: 'beforeAfterEffect',
+      // the proper extensions will be added
+      fileName: 'before-to-after',
+      formats: ['es', 'cjs', 'umd', 'iife']
     }
   }
 })

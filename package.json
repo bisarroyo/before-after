@@ -3,9 +3,19 @@
   "version": "0.1.4",
   "description": "",
   "author": "Bismark Arroyo <bis.arroyo@gmail.com>",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/before-to-after.cjs",
+  "module": "./dist/before-to-after.js",
+  "types": "/dist/before-to-after.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/before-to-after.js",
+      "require": "./dist/before-to-after.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -26,5 +36,8 @@
   },
   "eslintConfig": {
     "extends": "standard"
+  },
+  "dependencies": {
+    "vite-plugin-dts": "^3.6.4"
   }
 }
