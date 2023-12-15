@@ -10,7 +10,7 @@ export default defineConfig({
       insertTypesEntry: true
     }),
     css({
-      output: 'css/bundle.css'
+      output: 'styles.css'
     })
   ],
   build: {

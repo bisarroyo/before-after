@@ -3,12 +3,14 @@ import {
   CustomImageElement,
   BeforeAfterOptions
 } from './types'
+import { styles } from './styles'
 
 class beforeAfterEffect {
   private container: ContainerElement | null = null
   private beforeImage: CustomImageElement | null = null
   private afterImage: CustomImageElement | null = null
   private rangeInput: HTMLInputElement | null = null
+  private static readonly styles = styles
 
   constructor(
     private containerId: string,
@@ -22,6 +24,18 @@ class beforeAfterEffect {
     }
     this.options = { ...defaultOptions, ...options }
     this.init()
+    this.applyStyles()
+  }
+  private applyStyles() {
+    if (!this.container) return
+
+    const styleElement = document.createElement('style')
+    styleElement.textContent = beforeAfterEffect.styles
+
+    // Agregar los estilos a la cabeza del documento o al contenedor
+    document.head.appendChild(styleElement)
+    // O bien, agrega los estilos directamente al contenedor:
+    // this.container.appendChild(styleElement);
   }
 
   private init() {
