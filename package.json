@@ -1,7 +1,7 @@
 {
   "name": "before-to-after",
-  "version": "0.1.73",
-  "description": "",
+  "version": "0.1.74",
+  "description": "This package provides a simple way to create a before and after effect using two images.",
   "author": "Bismark Arroyo <bis.arroyo@gmail.com>",
   "type": "module",
   "files": [
@@ -25,7 +25,11 @@
     "type": "git",
     "url": "https://github.com/bisarroyo/before-to-after.git"
   },
-  "keywords": [],
+  "keywords": [
+    "before-to-after",
+    "image-before",
+    "slide-images"
+  ],
   "license": "MIT",
   "homepage": "https://www.npmjs.com/package/before-to-after",
   "devDependencies": {
