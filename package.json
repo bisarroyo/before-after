@@ -1,6 +1,6 @@
 {
   "name": "before-to-after",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "",
   "author": "Bismark Arroyo <bis.arroyo@gmail.com>",
   "type": "module",
@@ -14,7 +14,8 @@
     ".": {
       "import": "./dist/before-to-after.js",
       "require": "./dist/before-to-after.umd.cjs"
-    }
+    },
+    "./css": "./css/bundle.css"
   },
   "scripts": {
     "dev": "vite",

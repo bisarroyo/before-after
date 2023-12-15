@@ -21,6 +21,7 @@ export default defineConfig({
       // the proper extensions will be added
       fileName: 'before-to-after',
       formats: ['es', 'cjs', 'umd', 'iife']
-    }
+    },
+    cssCodeSplit: true
   }
 })
