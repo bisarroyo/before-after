@@ -2,7 +2,7 @@ export const styles = `
   #btaContainer {
     position: relative;
     margin: 0 auto;
-    /* overflow: hidden; */
+    overflow: hidden;
   }
 
   #before-image {
