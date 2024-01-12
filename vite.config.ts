@@ -8,10 +8,10 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true
-    }),
-    css({
-      output: 'styles.css'
     })
+    // css({
+    //   output: 'styles.css'
+    // })
   ],
   build: {
     lib: {
