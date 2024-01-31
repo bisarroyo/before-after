@@ -44,7 +44,9 @@ class beforeAfterEffect {
     ) as ContainerElement
 
     if (!this.container) {
-      console.error(`No se encontró el contenedor con ID "${this.containerId}"`)
+      console.error(
+        `There is not a container with the ID "${this.containerId}!"`
+      )
       return
     }
     if (this.container && this.options && this.options.width) {
