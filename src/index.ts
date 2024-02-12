@@ -20,7 +20,7 @@ class beforeAfterEffect {
       width: '500px',
       height: '500px',
       rangeInitialValue: '50',
-      rangeInitialColor: '#000000'
+      initialColor: '#000000'
     }
     this.options = { ...defaultOptions, ...options }
     this.init()
@@ -34,8 +34,6 @@ class beforeAfterEffect {
 
     // Agregar los estilos a la cabeza del documento o al contenedor
     document.head.appendChild(styleElement)
-    // O bien, agrega los estilos directamente al contenedor:
-    // this.container.appendChild(styleElement);
   }
 
   private init() {
@@ -82,8 +80,8 @@ class beforeAfterEffect {
     this.rangeInput.value = `${this.options?.rangeInitialValue}`
     this.rangeInput.className = 'range-value'
     this.container!.appendChild(this.rangeInput)
-    if (this.container && this.options && this.options.rangeInitialColor) {
-      this.rangeInput.style.color = this.options?.rangeInitialColor
+    if (this.container && this.options && this.options.initialColor) {
+      this.rangeInput.style.color = this.options?.initialColor
     }
   }
 

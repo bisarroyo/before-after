@@ -30,7 +30,7 @@ const bta = new beforeAfterEffect('btaContainer', {
   width: '500px',
   height: '300px',
   rangeInitialValue: '0',
-  rangeInitialColor: '#000000'
+  initialColor: '#000000'
 })
 ```
 
@@ -43,7 +43,7 @@ Object conf is optional.
 | `width`             | `string` | **optional**. Specifies the width of the container element. Default value: '500px'.   |
 | `height`            | `string` | **optional**. Specifies the height of the container element. Default value: '300px'   |
 | `rangeInitialValue` | `string` | **optional**. Sets the initial value of the position. Default value: '50'.            |
-| `rangeInitialColor` | `string` | **optional**. Defines the initial color of the range input. Default value: '#000000'. |
+| `initialColor`      | `string` | **optional**. Defines the initial color of the range input. Default value: '#000000'. |
 
 ## Authors
 

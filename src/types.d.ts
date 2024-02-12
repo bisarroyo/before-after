@@ -12,7 +12,7 @@ interface CustomImageElement {
 interface BeforeAfterOptions {
   width?: string
   height?: string
-  rangeInitialColor?: string
+  inictialColor?: string
   rangeInitialValue?: string
 }
 
