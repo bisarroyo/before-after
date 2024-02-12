@@ -14,12 +14,12 @@ class beforeAfterEffect {
 
   constructor(
     private containerId: string,
-    private options?: BeforeAfterOptions
+    private options: BeforeAfterOptions
   ) {
     const defaultOptions: BeforeAfterOptions = {
       width: '500px',
       height: '500px',
-      rangeInitialValue: '50',
+      rangeInitialValue: 50,
       initialColor: '#000000'
     }
     this.options = { ...defaultOptions, ...options }
@@ -82,6 +82,9 @@ class beforeAfterEffect {
     this.container!.appendChild(this.rangeInput)
     if (this.container && this.options && this.options.initialColor) {
       this.rangeInput.style.color = this.options?.initialColor
+    }
+    if (this.options.rangeInitialValue > 100) {
+      throw new Error('max range value is 100')
     }
   }
 

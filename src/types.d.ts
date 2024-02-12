@@ -13,7 +13,7 @@ interface BeforeAfterOptions {
   width?: string
   height?: string
   initialColor?: string
-  rangeInitialValue?: string
+  rangeInitialValue: number
 }
 
 export { ContainerElement, CustomImageElement, BeforeAfterOptions }
